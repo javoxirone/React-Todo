@@ -1,0 +1,15 @@
+.Item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+}
+
+.Item > button{
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-weight: 600;
+}
