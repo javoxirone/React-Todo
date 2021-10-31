@@ -1,26 +1,33 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import List from "./components/List/List";
 import "./styles/App.css"
 function App() {
   const [items, setItems] = useState([
     {id:1, title: 'Hello World!'},
   ])
-  const [value, setValue] = useState('')
+  const inputRef = useRef(null)
   const sendItem = () => {
-    setItems([...items, {id: Date.now(), title: value}])
+    setItems([...items, {id: Date.now(), title: inputRef.current.value}])
+    inputRef.current.value = ''
   }
   const removeItem = (item) => {
     setItems(items.filter(i => i.id !== item.id))
   }
+  const manageItem = (value) => {
+    setItems(items.forEach(item => [...items, item.title = value]))
+  }
+  useEffect(() => {
+    console.log('render items!')
+  })
   return (
     <div className="App">
       <div className="app__content">
         <div className="app__header">
-          <input type="text" value={value} onChange={e => setValue(e.target.value)} />
+          <input ref={inputRef} type="text" />
           <button onClick={sendItem}>Send</button>
         </div>
         
-        <List items={items} remove={removeItem} />
+        <List items={items} manage={manageItem} remove={removeItem} />
       </div>
     </div>
   );
