@@ -15,7 +15,7 @@
     align-items: center;
 }
 .app__content{
-    width: 50%;
+    width: 100%;
 }
 .app__header{
     display: flex;
