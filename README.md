@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Todo List in React js using Hooks and Functional components
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
